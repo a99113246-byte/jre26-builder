@@ -1,0 +1,21 @@
+
+name: Build JRE 26
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 26
+        uses: actions/setup-java@v4
+        with:
+          distribution: oracle
+          java-version: '26'
+
+      - name: Check Java
+        run: java -version
